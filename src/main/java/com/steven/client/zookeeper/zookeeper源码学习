@@ -1,0 +1,11 @@
+zookeeper服务启动流程
+org.apache.zookeeper.server.quorum.QuorumPeerMain.initializeAndRun
+    >org.apache.zookeeper.server.quorum.QuorumPeerConfig 将zoo.cfg加载到内存中
+        >org.apache.zookeeper.server.quorum.QuorumPeerMain.runFromConfig 集群模式
+            >org.apache.zookeeper.server.quorum.QuorumPeer 构建配置文件上下文
+                >org.apache.zookeeper.server.ServerCnxnFactory.createFactory() 网络初始化
+                    >org.apache.zookeeper.server.quorum.QuorumPeer.start 线程启动 1.数据准备 2.网络开始 3.网络选举 4.start
+              数据准备  >org.apache.zookeeper.server.quorum.QuorumPeer.loadDataBase ZKDatabase>DataTree>DataNode(map)
+
+
+客户端
